@@ -35,19 +35,19 @@
 #    multipart:
 #      max-file-size: 100MB
 #      max-request-size: 100MB
-pagehelper:
-  helper-dialect: mysql
-  reasonable: true
-  support-methods-arguments: true
-  params: count=countSql
-mapper:
-  not-empty: true
-  mappers: com.yao.sps.MyMapper
-  identity: MYSQL
-mybatis:
-  mapper-locations: classpath*:mapper/**/*.xml
-  configuration:
-    map-underscore-to-camel-case: true  ##开启驼峰
+#pagehelper:
+#  helper-dialect: mysql
+#  reasonable: true
+#  support-methods-arguments: true
+#  params: count=countSql
+#mapper:
+#  not-empty: true
+#  mappers: com.yao.sps.MyMapper
+#  identity: MYSQL
+#mybatis:
+#  mapper-locations: classpath*:mapper/**/*.xml
+#  configuration:
+#    map-underscore-to-camel-case: true
 
 ##logging:
 ##  path: logs/

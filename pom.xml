@@ -16,6 +16,10 @@
         <mybatis-spring-boot-starter.verison>1.3.2</mybatis-spring-boot-starter.verison>
         <mapper-spring-boot-starter.version>1.2.4</mapper-spring-boot-starter.version>
         <mapper.version>3.5.3</mapper.version>
+        <httpclient.version>4.3.4</httpclient.version>
+        <druid.version>1.1.9</druid.version>
+        <commons-httpclient.version>3.1</commons-httpclient.version>
+        <jsoup.version>1.8.3</jsoup.version>
         <!--       <pagehelper.starter.version>1.2.5</pagehelper.starter.version>
               <poi.version>3.17</poi.version>
               <easyexcel.version>2.0.5</easyexcel.version>

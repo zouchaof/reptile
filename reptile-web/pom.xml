@@ -6,8 +6,6 @@
     <version>1.0.0-SNAPSHOT</version>
   </parent>
   <artifactId>reptile-web</artifactId>
-  <groupId>com.reptile</groupId>
-  <version>1.0.0-SNAPSHOT</version>
   <packaging>war</packaging>
   <dependencies>
     <dependency>
@@ -40,6 +38,12 @@
       <scope>test</scope>
     </dependency>
 
+
+    <dependency>
+      <groupId>org.logback-extensions</groupId>
+      <artifactId>logback-ext-spring</artifactId>
+      <version>0.1.4</version>
+    </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
@@ -56,6 +60,7 @@
     <dependency>
       <groupId>com.reptile</groupId>
       <artifactId>reptile-service</artifactId>
+      <version>${project.version}</version>
     </dependency>
   </dependencies>
 
