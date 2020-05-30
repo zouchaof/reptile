@@ -24,7 +24,7 @@ public class ProductInfo implements Serializable {
 
     private String unit;//单位
 
-    private String desc;//规格描述
+    private String productDesc;//规格描述
 
     private String trademark;//品牌
 

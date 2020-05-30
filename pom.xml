@@ -20,10 +20,10 @@
         <druid.version>1.1.9</druid.version>
         <commons-httpclient.version>3.1</commons-httpclient.version>
         <jsoup.version>1.8.3</jsoup.version>
-        <!--       <pagehelper.starter.version>1.2.5</pagehelper.starter.version>
-              <poi.version>3.17</poi.version>
-              <easyexcel.version>2.0.5</easyexcel.version>
-              <easypoi.version>3.2.0</easypoi.version> -->
+        <pagehelper.starter.version>1.2.5</pagehelper.starter.version>
+        <!--     <poi.version>3.17</poi.version>
+             <easyexcel.version>2.0.5</easyexcel.version>
+             <easypoi.version>3.2.0</easypoi.version> -->
         
     </properties>
     <modules>
