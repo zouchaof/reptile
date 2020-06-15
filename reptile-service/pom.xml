@@ -8,26 +8,26 @@
   <artifactId>reptile-service</artifactId>
   <packaging>jar</packaging>
   <dependencies>
-    <dependency>
-      <groupId>tk.mybatis</groupId>
-      <artifactId>mapper-spring-boot-starter</artifactId>
-      <version>${mapper-spring-boot-starter.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.github.pagehelper</groupId>
-      <artifactId>pagehelper-spring-boot-starter</artifactId>
-      <version>${pagehelper.starter.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.alibaba</groupId>
-      <artifactId>druid-spring-boot-starter</artifactId>
-      <version>${druid.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>com.reptile</groupId>
-      <artifactId>reptile-dao</artifactId>
-      <version>${project.version}</version>
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>tk.mybatis</groupId>-->
+<!--      <artifactId>mapper-spring-boot-starter</artifactId>-->
+<!--      <version>${mapper-spring-boot-starter.version}</version>-->
+<!--    </dependency>-->
+<!--    <dependency>-->
+<!--      <groupId>com.github.pagehelper</groupId>-->
+<!--      <artifactId>pagehelper-spring-boot-starter</artifactId>-->
+<!--      <version>${pagehelper.starter.version}</version>-->
+<!--    </dependency>-->
+<!--    <dependency>-->
+<!--      <groupId>com.alibaba</groupId>-->
+<!--      <artifactId>druid-spring-boot-starter</artifactId>-->
+<!--      <version>${druid.version}</version>-->
+<!--    </dependency>-->
+<!--    <dependency>-->
+<!--      <groupId>com.reptile</groupId>-->
+<!--      <artifactId>reptile-dao</artifactId>-->
+<!--      <version>${project.version}</version>-->
+<!--    </dependency>-->
     <dependency>
       <groupId>commons-httpclient</groupId>
       <artifactId>commons-httpclient</artifactId>
@@ -56,11 +56,11 @@
       <groupId>dom4j</groupId>
       <artifactId>dom4j</artifactId>
     </dependency>
-    <dependency>
-      <groupId>com.alibaba</groupId>
-      <artifactId>druid</artifactId>
-      <version>${druid.version}</version>
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>com.alibaba</groupId>-->
+<!--      <artifactId>druid</artifactId>-->
+<!--      <version>${druid.version}</version>-->
+<!--    </dependency>-->
     <dependency>
       <artifactId>fastjson</artifactId>
       <groupId>com.alibaba</groupId>
@@ -70,5 +70,29 @@
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
     </dependency>
+
+      <!-- logback -->
+      <dependency>
+          <groupId>org.logback-extensions</groupId>
+          <artifactId>logback-ext-spring</artifactId>
+          <version>0.1.4</version>
+      </dependency>
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-api</artifactId>
+          <version>${log.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>jcl-over-slf4j</artifactId>
+          <version>${log.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>log4j-over-slf4j</artifactId>
+          <version>${log.version}</version>
+      </dependency>
+
+
   </dependencies>
 </project>

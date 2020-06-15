@@ -39,23 +39,7 @@
     </dependency>
 
 
-    <dependency>
-      <groupId>org.logback-extensions</groupId>
-      <artifactId>logback-ext-spring</artifactId>
-      <version>0.1.4</version>
-    </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>jcl-over-slf4j</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>log4j-over-slf4j</artifactId>
-    </dependency>
+
 
     <dependency>
       <groupId>com.reptile</groupId>

@@ -1,4 +1,4 @@
-package com.test.souce;
+package com.reptile.souce.item;
 
 import lombok.Data;
 
@@ -8,7 +8,7 @@ import java.io.Serializable;
  * 轨道
  */
 @Data
-public class Guidao implements Serializable {
+public class Guidao extends BaseSource {
 
     private Integer startIndex;//起点
 
