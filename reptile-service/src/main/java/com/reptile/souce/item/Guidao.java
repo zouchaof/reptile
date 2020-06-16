@@ -10,8 +10,9 @@ import java.io.Serializable;
 @Data
 public class Guidao extends BaseSource {
 
-    private Integer startIndex;//起点
 
-    private Integer endIndex;//终点
-
+    public Guidao(Integer z_floor, Integer x_index) {
+        setZ_floor(z_floor);
+        setX_index(x_index);
+    }
 }

@@ -2,14 +2,10 @@ package com.reptile.souce.item;
 
 import lombok.Data;
 
-/**
- * 托板
- */
 @Data
-public class Tuoban extends MoveSource{
+public class Car extends BaseSource{
 
-
-    public Tuoban(Integer z_floor, Integer x_index) {
+    public Car(Integer z_floor, Integer x_index) {
         setZ_floor(z_floor);
         setX_index(x_index);
     }

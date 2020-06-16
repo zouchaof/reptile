@@ -1,10 +1,16 @@
 package com.reptile.souce.item;
 
+import lombok.Data;
+
 /**
  * 1楼缓冲区
  */
+@Data
 public class Huanchong extends BaseSource{
 
-    private Integer x_index;//第几格-x轴坐标
 
+    public Huanchong(Integer x_index) {
+        setZ_floor(0);
+        setX_index(x_index);
+    }
 }
