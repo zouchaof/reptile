@@ -24,26 +24,26 @@ public class TestController {
 
     private boolean b = false;
 
-    @Autowired
-    private ProductInfoMapper productInfoMapper;
-
-    @RequestMapping("save")
-    @ResponseBody
-    public String save(){
-        log.info("save start...");
-        ProductInfo productInfo = new ProductInfo();
-        productInfo.setBarcode("123");
-        productInfoMapper.insertSelective(productInfo);
-        return "success";
-    }
-
-    @RequestMapping("get")
-    @ResponseBody
-    public String get(){
-        log.info("get start...");
-        PageHelper.startPage(1,10);
-        return JSONObject.toJSONString(productInfoMapper.selectAll());
-    }
+//    @Autowired
+//    private ProductInfoMapper productInfoMapper;
+//
+//    @RequestMapping("save")
+//    @ResponseBody
+//    public String save(){
+//        log.info("save start...");
+//        ProductInfo productInfo = new ProductInfo();
+//        productInfo.setBarcode("123");
+//        productInfoMapper.insertSelective(productInfo);
+//        return "success";
+//    }
+//
+//    @RequestMapping("get")
+//    @ResponseBody
+//    public String get(){
+//        log.info("get start...");
+//        PageHelper.startPage(1,10);
+//        return JSONObject.toJSONString(productInfoMapper.selectAll());
+//    }
 
     @RequestMapping("timer")
     @ResponseBody

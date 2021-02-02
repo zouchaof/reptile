@@ -1,4 +1,4 @@
-package com.reptile.util;
+package com.reptile.mess.util;
 
 import org.apache.commons.httpclient.HttpException;
 import org.apache.commons.httpclient.HttpStatus;

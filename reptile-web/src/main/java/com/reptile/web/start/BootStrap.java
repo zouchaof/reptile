@@ -9,7 +9,7 @@ import tk.mybatis.spring.annotation.MapperScan;
 
 @Slf4j
 @SpringBootApplication(scanBasePackages={"com.reptile"})
-@MapperScan("com.reptile.mapper.dao")
+//@MapperScan("com.reptile.mapper.dao")
 public class BootStrap implements CommandLineRunner {
 
     public static void main(String[] args) {

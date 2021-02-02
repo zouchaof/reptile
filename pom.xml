@@ -31,6 +31,7 @@
         <module>reptile-dao</module>
         <module>reptile-service</module>
         <module>reptile-web</module>
+        <module>reptile-mess</module>
     </modules>
     <dependencies>
         <dependency>
