@@ -186,9 +186,22 @@ public class HttpRequestUtil {
 	 * 普通传参方式，body为key1=value1&key2=value2&key3=value3格式
 	 * @param url
 	 * @param body
-	 * @param charset
 	 * @return
 	 */
+	@Deprecated
+	public static String postMethod(String url){
+		String newurl = StringUtils.substringBefore(url, "?");
+		String body = StringUtils.substringAfter(url, "?");
+		Map<String,String> map = urlStringToMap(body);
+		return postMethod(newurl, map, "utf-8");
+	}
+
+	@Deprecated
+	public static String postMethod(String url,String body){
+		Map<String,String> map = urlStringToMap(body);
+		return postMethod(url, map, "utf-8");
+	}
+
 	@Deprecated
 	public static String postMethod(String url,String body,String charset){
 		Map<String,String> map = urlStringToMap(body);

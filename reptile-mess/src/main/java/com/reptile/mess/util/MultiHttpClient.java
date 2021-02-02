@@ -42,7 +42,7 @@ public class MultiHttpClient {
     private static final int connectionTimeout = 20*1000;
     private static final int connectionRequestTimeout = 10*1000;
     private static final int soTimeout = 20*1000;
-    private static CloseableHttpClient httpClient;
+    private CloseableHttpClient httpClient;
     RequestConfig config = RequestConfig.custom()
             .setSocketTimeout(soTimeout)
             .setConnectTimeout(connectionTimeout)
@@ -94,6 +94,11 @@ public class MultiHttpClient {
         try{
             HttpPost httpPost = new HttpPost(url);
             httpPost.addHeader("content-type", "application/json");
+            httpPost.addHeader("Accept","application/json, text/plain, */*");
+            httpPost.addHeader("Referer","https://live.51lm.tv/extension/BDWYSS14");
+//            httpPost.addHeader("lmInfo","G=f7ba8f2e4f0703abddbb6d600ea13def&e=BDWYSS14&h=1612270332580&i=-337544476&o=Windows%4010_Chrome%4067&t=S&v=2.0.0&w=1abb5d501227914442a103e0215ed599");
+            httpPost.addHeader("lmInfo","G=e01e195692b4afbbbd1b2ec34ffde4f7&e=BDWYSS14&h=1612271091742&i=-337544476&o=Windows%4010_Chrome%4067&t=S&v=2.0.0&w=1abb5d501227914442a103e0215ed599");
+            httpPost.addHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36");
             StringEntity se = new StringEntity(jsonStr,charset);
             httpPost.setEntity(se);
             httpResponse = httpClient.execute(httpPost);
