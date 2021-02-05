@@ -7,6 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.CookieStore;
 import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -16,6 +17,7 @@ import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.conn.ssl.SSLContextBuilder;
 import org.apache.http.conn.ssl.TrustStrategy;
 import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
@@ -43,19 +45,28 @@ public class MultiHttpClient {
     private static final int connectionRequestTimeout = 10*1000;
     private static final int soTimeout = 20*1000;
     private CloseableHttpClient httpClient;
+    private CookieStore cookieStore = new BasicCookieStore();
     RequestConfig config = RequestConfig.custom()
             .setSocketTimeout(soTimeout)
             .setConnectTimeout(connectionTimeout)
             .setConnectionRequestTimeout(connectionRequestTimeout)
             .build();
 
+    public CloseableHttpClient getHttpClient() {
+        return httpClient;
+    }
+
+    public CookieStore getCookieStore() {
+        return cookieStore;
+    }
+
     public MultiHttpClient() {
-        httpClient = HttpClients.custom().setDefaultRequestConfig(config).build();
+        httpClient = HttpClients.custom().setDefaultRequestConfig(config).setDefaultCookieStore(cookieStore).build();
     }
 
     public MultiHttpClient(boolean isHttps) {
         if(!isHttps){
-            httpClient = HttpClients.custom().setDefaultRequestConfig(config).build();
+            httpClient = HttpClients.custom().setDefaultRequestConfig(config).setDefaultCookieStore(cookieStore).build();
         }else{
             try {
                 SSLContext sslContext = new SSLContextBuilder().loadTrustMaterial(null, new TrustStrategy() {
@@ -66,7 +77,7 @@ public class MultiHttpClient {
                     }
                 }).build();
                 SSLConnectionSocketFactory sslsf = new SSLConnectionSocketFactory(sslContext);
-                httpClient = HttpClients.custom().setDefaultRequestConfig(config).setSSLSocketFactory(sslsf).build();
+                httpClient = HttpClients.custom().setDefaultRequestConfig(config).setDefaultCookieStore(cookieStore).setSSLSocketFactory(sslsf).build();
             } catch (KeyManagementException e) {
                 e.printStackTrace();
             } catch (NoSuchAlgorithmException e) {
@@ -86,6 +97,9 @@ public class MultiHttpClient {
      * @return
      */
     public String postMethodByJsonStream(String url,String jsonStr,String charset){
+        return postMethodByJsonStream(url,jsonStr,charset,null);
+    }
+    public String postMethodByJsonStream(String url,String jsonStr,String charset,Map<String, String> headerMap){
         String html = "";
         if(httpClient == null){
             return html;
@@ -94,11 +108,11 @@ public class MultiHttpClient {
         try{
             HttpPost httpPost = new HttpPost(url);
             httpPost.addHeader("content-type", "application/json");
-            httpPost.addHeader("Accept","application/json, text/plain, */*");
-            httpPost.addHeader("Referer","https://live.51lm.tv/extension/BDWYSS14");
-//            httpPost.addHeader("lmInfo","G=f7ba8f2e4f0703abddbb6d600ea13def&e=BDWYSS14&h=1612270332580&i=-337544476&o=Windows%4010_Chrome%4067&t=S&v=2.0.0&w=1abb5d501227914442a103e0215ed599");
-            httpPost.addHeader("lmInfo","G=e01e195692b4afbbbd1b2ec34ffde4f7&e=BDWYSS14&h=1612271091742&i=-337544476&o=Windows%4010_Chrome%4067&t=S&v=2.0.0&w=1abb5d501227914442a103e0215ed599");
-            httpPost.addHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36");
+            if(headerMap != null && headerMap.size() > 0){
+                for (Map.Entry<String, String> entry : headerMap.entrySet()) {
+                    httpPost.addHeader(entry.getKey(), entry.getValue());
+                }
+            }
             StringEntity se = new StringEntity(jsonStr,charset);
             httpPost.setEntity(se);
             httpResponse = httpClient.execute(httpPost);
