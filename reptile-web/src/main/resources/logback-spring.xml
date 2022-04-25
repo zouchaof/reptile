@@ -76,8 +76,8 @@
     <!-- 日志输出级别 -->
     <root level="INFO">
         <appender-ref ref="STDOUT"/>
-        <!--<appender-ref ref="INFO"/>-->
-        <!--<appender-ref ref="WARN"/>-->
-        <!--<appender-ref ref="ERROR"/>-->
+        <appender-ref ref="INFO"/>
+        <appender-ref ref="WARN"/>
+        <appender-ref ref="ERROR"/>
     </root>
 </configuration>
